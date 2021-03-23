@@ -1,5 +1,5 @@
 # lib2nbdev
-> An all-inclusive package for converting your existing libraries and projects into `nbdev` ones developed by Novetta
+> An all-inclusive package for converting your existing libraries and projects into `nbdev` ones developed by Novetta.
 
 
 [nbdev](nbdev.fast.ai) is a fantastic workflow aimed at centralizing documentation, testing, and source code generation all out of one place: Jupyter Notebooks. However, what if you already have an existing project? As it stands the only way to convert your library over is through manual tasks (which can take > 30 hrs!). 
