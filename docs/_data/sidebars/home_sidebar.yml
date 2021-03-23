@@ -5,9 +5,12 @@
 # Instead edit ../../sidebar.json
 entries:
 - folders:
-  - output: web,pdf
-    title: Overview
-    url: /
+  - folderitems:
+    - output: web,pdf
+      title: Overview
+      url: /
+    output: web
+    title: Getting Started
   - output: web,pdf
     title: The Converter
     url: convert.html

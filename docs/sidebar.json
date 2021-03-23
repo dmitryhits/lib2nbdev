@@ -1,4 +1,6 @@
 {
-    "Overview": "/",
+    "Getting Started": {
+        "Overview": "/"
+    },
     "The Converter": "convert.html"
 }
