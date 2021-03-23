@@ -33,4 +33,4 @@ Afterwards you have a fully-functional `nbdev` library, and can make use of all 
 
 ## Important Notice:
 
-**This is a one-time conversion, this does not allow for python -> notebook conversion, though the foundations for this functionality are here.**
+**This is a one-time conversion, this does not allow for repeated python -> notebook conversion.**
