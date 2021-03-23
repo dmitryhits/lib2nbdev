@@ -121,10 +121,13 @@ def _not_private(n):
 def convert_lib():
     """
     Converts existing library to an nbdev one by autogenerating notebooks.
+
     Basic prerequisites:
       - You must have made a nbdev settings.ini file beforehand
       - Optionally you can add `# Cell` and `# Internal Cell` tags in the source files where you would like specific cells to be
+
     Run this command in the base of your repo
+
     **Can only be run once**
     """
     print('Gathering files...')

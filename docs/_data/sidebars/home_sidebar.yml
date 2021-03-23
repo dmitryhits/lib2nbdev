@@ -5,14 +5,11 @@
 # Instead edit ../../sidebar.json
 entries:
 - folders:
-  - folderitems:
-    - output: web,pdf
-      title: Overview
-      url: /
-    - output: web,pdf
-      title: The Converter
-      url: convert.html
-    output: web
-    title: lib2nbdev
+  - output: web,pdf
+    title: Overview
+    url: /
+  - output: web,pdf
+    title: The Converter
+    url: convert.html
   output: web
   title: Sidebar
