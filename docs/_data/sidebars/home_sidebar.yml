@@ -9,10 +9,10 @@ entries:
     - output: web,pdf
       title: Overview
       url: /
+    - output: web,pdf
+      title: The Converter
+      url: convert.html
     output: web
-    title: Getting Started
-  - output: web,pdf
-    title: The Converter
-    url: convert.html
+    title: lib2nbdev
   output: web
   title: Sidebar

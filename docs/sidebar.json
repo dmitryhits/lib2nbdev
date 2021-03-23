@@ -1,6 +1,6 @@
 {
-    "Getting Started": {
-        "Overview": "/"
-    },
-    "The Converter": "convert.html"
+    "lib2nbdev": {
+        "Overview": "/",
+        "The Converter": "convert.html"
+    }
 }
