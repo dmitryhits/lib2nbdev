@@ -12,6 +12,8 @@ Instead, we can perform a one-time conversion on any existing library, so long a
   - **`settings.ini`**
   - `lib2nbdev`
     - `convert.py`
+    
+For generating a valid `settings.ini`, see an example [here](https://github.com/fastai/nbdev_template/blob/master/settings.ini) and the related nbdev [documentation](https://nbdev.fast.ai/tutorial.html#Edit-settings.ini)
 
 ## Install
 
@@ -19,15 +21,15 @@ Instead, we can perform a one-time conversion on any existing library, so long a
 
 ## How to use
 
-From your project directory, simply run:
+From your project directory (in bash), simply run:
 
-```python
-lib2nbdev
+```bash
+convert_lib
 ```
 
 And it will automatically generate the notebooks needed, as well as privatizing any functions that may need it (anything preceding with a `_` in the name) where they shouldn't show in the generated documentation. 
 
-Afterwards you have a fully-functional `nbdev` library, and can make use of all its goodies.
+Afterwards you have a fully-functional `nbdev` library, and can make use of all its goodies!
 
 ## Important Notice:
 
