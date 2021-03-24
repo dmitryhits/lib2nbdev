@@ -7,6 +7,7 @@ index = {"start_cell": "00_convert.ipynb",
          "write_cell": "00_convert.ipynb",
          "finish_nb": "00_convert.ipynb",
          "write_nb": "00_convert.ipynb",
+         "generate_settings": "00_convert.ipynb",
          "convert_lib": "00_convert.ipynb"}
 
 modules = ["convert.py"]
