@@ -112,32 +112,33 @@ def generate_settings():
     """
     if Path('settings.ini').exists(): raise Exception("Cannot generate settings: settings.ini already exists")
 
-    print("No settings.ini exists, let's make one:")
+    print("Creating Settings File:")
     f = open("settings.ini", 'w')
-    f.write("[DEFAULT]\nhost = github\n")
-    lib_name = input("Please enter the name of your library: ")
-    f.write(f"lib_name = {lib_name}\n")
-    _enterprise = int(input("Is this an Enterprise Git? (0 or 1): "))
-    if _enterprise:
-        repo_name = input("Please enter the repo name: ")
-        company_name = input("Please enter the company name: ")
-        f.write(f'repo_name = {repo_name}\ncompany_name = {company_name}\n')
+    user_inp = {}
 
-    user = input("Please enter your git username: ")
-    description = input("Please enter a description of the project: ")
-    keywords = input("Please enter some keywords for your project seperated by a space: ")
-    authors = input("Please enter all main authors names (seperate names with a space): ")
-    author_email = input("Please enter a main email contact for the project: ")
-    copyright = input("Please enter a Copyright (such as company name or your name): ")
-    branch = input("Please enter the head branch of this project (such as master/main): ")
-    min_py = input("Please enter the minimum required Python for this project (such as 3.6): ")
+    user_inp['[DEFAULT]\nhost'] = 'github\n'
+    user_inp['lib_name'] = input("Please enter the name of your library: ")
+    _enterprise = int(input("Is this an Enterprise Git? (0 or 1): "))
+
+    if _enterprise:
+        user_inp['repo_name'] = input("Please enter the repo name: ")
+        user_inp['company_name'] = input("Please enter the company name: ")
+
+    user_inp['user'] = input("Please enter your git username: ")
+    user_inp['description'] = input("Please enter a description of the project: ")
+    user_inp['keywords'] = input("Please enter some keywords for your project seperated by a space: ")
+    user_inp['authors'] = input("Please enter all main authors names (seperate names with a space): ")
+    user_inp['author_email'] = input("Please enter a main email contact for the project: ")
+    user_inp['copyright'] = input("Please enter a Copyright (such as company name or your name): ")
+    user_inp['branch'] = input("Please enter the head branch of this project (such as master/main): ")
+    user_inp['version'] = '0.0.1'
+    user_inp['min_py'] = input("Please enter the minimum required Python for this project (such as 3.6): ")
+    user_inp['audience'] = 'Developers'; user_inp['language'] = 'English'
+
+    for k, v in tmp.items(): f.write(f'{k} = {v}\n')
 
     nbs = input("Please enter where you would like your notebooks stored? (Usually `nbs` or `.`): ")
 
-    f.write(f'user = {user}\ndescription = {description}\nkeywords = {keywords}\n')
-    f.write(f'author = {authors}\nauthor_email = {author_email}\ncopyright = {copyright}\n')
-    f.write(f'branch = {branch}\nversion = 0.0.1\nmin_python = {min_py}\n')
-    f.write('audience = Developers\nlanguage = English\n')
     f.write('# Set to True if you want to create a more fancy sidebar.json than the default\ncustom_sidebar = False\n')
     f.write('# Add licenses and see current list in `setup.py`\nlicense = apache2\n')
     f.write('# From 1-7: Planning Pre-Alpha Alpha Beta Production Mature Inactive\nstatus = 2\n')
@@ -205,7 +206,7 @@ def convert_lib():
     print(f'{len(files)} modules found in the library')
     num_nbs = len(files)
     nb_path = Config().path('nbs_path')
-    nb_path.mkdir(exist_ok=True)
+    nb_path.makedirs(exist_ok=True)
     print(f'Writing notebooks to {nb_path}...')
     if nb_path.name == Config().lib_name:
         nb_path = Path('')
