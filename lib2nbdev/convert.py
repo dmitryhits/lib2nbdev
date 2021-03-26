@@ -110,9 +110,8 @@ def generate_settings():
     """
     Guide the user for generating a proper `settings.ini` if one does not already exist in the directory
     """
-    if Path('settings.ini').exists():
-        print("settings.ini already exists, please modify the existing version")
-        return
+    if Path('settings.ini').exists(): raise Exception("Cannot generate settings: settings.ini already exists")
+
     print("No settings.ini exists, let's make one:")
     f = open("settings.ini", 'w')
     f.write("[DEFAULT]\nhost = github\n")
@@ -199,7 +198,7 @@ def convert_lib():
     **Can only be run once**
     """
     print('Checking for a settings.ini...')
-    generate_settings()
+    if not Path('settings.ini').exists(): generate_settings()
     print('Gathering files...')
     files = nbglob(extension='.py', config_key='lib_path', recursive=True)
     if len(files) == 0: raise ValueError("No files were found, please ensure that `lib_path` is configured properly in `settings.ini`")
