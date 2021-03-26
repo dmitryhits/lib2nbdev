@@ -31,6 +31,15 @@ And it will automatically generate the notebooks needed, as well as privatizing 
 
 Afterwards you have a fully-functional `nbdev` library, and can make use of all its goodies!
 
+### Note for Windows Users:
+
+If you wish to use this library you should either:
+
+1. Use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (WSL2)
+2. Use the Python3 interpreter in Windows:
+    - `python3`
+    - `from lib2nbdev.convert import convert_lib; convert_lib()`
+
 ## Important Notice:
 
 **This is a one-time conversion, this does not allow for repeated python -> notebook conversions.**

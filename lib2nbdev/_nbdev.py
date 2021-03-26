@@ -2,10 +2,9 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"start_cell": "00_convert.ipynb",
+index = {"code_cell": "00_convert.ipynb",
          "init_nb": "00_convert.ipynb",
          "write_cell": "00_convert.ipynb",
-         "finish_nb": "00_convert.ipynb",
          "write_nb": "00_convert.ipynb",
          "generate_settings": "00_convert.ipynb",
          "convert_lib": "00_convert.ipynb"}

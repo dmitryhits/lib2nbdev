@@ -75,6 +75,15 @@ nb_path: "index.ipynb"
 </pre></div>
 <p>And it will automatically generate the notebooks needed, as well as privatizing any functions that may need it (anything preceding with a <code>_</code> in the name) where they shouldn't show in the generated documentation.</p>
 <p>Afterwards you have a fully-functional <code>nbdev</code> library, and can make use of all its goodies!</p>
+<h3 id="Note-for-Windows-Users:">Note for Windows Users:<a class="anchor-link" href="#Note-for-Windows-Users:"> </a></h3><p>If you wish to use this library you should either:</p>
+<ol>
+<li>Use <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux</a> (WSL2)</li>
+<li>Use the Python3 interpreter in Windows:<ul>
+<li><code>python3</code></li>
+<li><code>from lib2nbdev.convert import convert_lib; convert_lib()</code></li>
+</ul>
+</li>
+</ol>
 
 </div>
 </div>
