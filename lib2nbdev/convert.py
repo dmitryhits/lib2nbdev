@@ -206,7 +206,7 @@ def convert_lib():
     print(f'{len(files)} modules found in the library')
     num_nbs = len(files)
     nb_path = Config().path('nbs_path')
-    nb_path.makedirs(exist_ok=True)
+    nb_path.mkdir(exist_ok=True)
     print(f'Writing notebooks to {nb_path}...')
     if nb_path.name == Config().lib_name:
         nb_path = Path('')
