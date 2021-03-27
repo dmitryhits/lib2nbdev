@@ -110,9 +110,10 @@ def generate_settings():
     """
     Guide the user for generating a proper `settings.ini` if one does not already exist in the directory
     """
-    if Path('settings.ini').exists(): raise Exception("Cannot generate settings: settings.ini already exists")
-
-    print("Creating Settings File:")
+    if Path('settings.ini').exists():
+        print("settings.ini already exists, please modify the existing version")
+        return
+    print("No settings.ini exists, let's make one:")
     f = open("settings.ini", 'w')
     user_inp = {}
 
@@ -127,7 +128,7 @@ def generate_settings():
     user_inp['user'] = input("Please enter your git username: ")
     user_inp['description'] = input("Please enter a description of the project: ")
     user_inp['keywords'] = input("Please enter some keywords for your project seperated by a space: ")
-    user_inp['authors'] = input("Please enter all main authors names (seperate names with a space): ")
+    user_inp['author'] = input("Please enter all main authors names (seperate names with a space): ")
     user_inp['author_email'] = input("Please enter a main email contact for the project: ")
     user_inp['copyright'] = input("Please enter a Copyright (such as company name or your name): ")
     user_inp['branch'] = input("Please enter the head branch of this project (such as master/main): ")
@@ -135,7 +136,7 @@ def generate_settings():
     user_inp['min_py'] = input("Please enter the minimum required Python for this project (such as 3.6): ")
     user_inp['audience'] = 'Developers'; user_inp['language'] = 'English'
 
-    for k, v in tmp.items(): f.write(f'{k} = {v}\n')
+    for k, v in user_inp.items(): f.write(f'{k} = {v}\n')
 
     nbs = input("Please enter where you would like your notebooks stored? (Usually `nbs` or `.`): ")
 
@@ -199,7 +200,7 @@ def convert_lib():
     **Can only be run once**
     """
     print('Checking for a settings.ini...')
-    if not Path('settings.ini').exists(): generate_settings()
+    generate_settings()
     print('Gathering files...')
     files = nbglob(extension='.py', config_key='lib_path', recursive=True)
     if len(files) == 0: raise ValueError("No files were found, please ensure that `lib_path` is configured properly in `settings.ini`")
