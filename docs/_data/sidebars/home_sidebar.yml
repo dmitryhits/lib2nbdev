@@ -7,12 +7,18 @@ entries:
 - folders:
   - folderitems:
     - output: web,pdf
-      title: Overview
+      title: Introduction
       url: /
+    - output: web,pdf
+      title: Converting Your Library (Tutorial)
+      url: tutorial.html
+    output: web
+    title: Getting Started
+  - folderitems:
     - output: web,pdf
       title: The Converter
       url: convert.html
     output: web
-    title: lib2nbdev
+    title: Documentation
   output: web
   title: Sidebar
