@@ -148,7 +148,7 @@ def generate_settings():
     user_inp['copyright'] = input("Please enter a Copyright (such as company name or your name): ")
     user_inp['branch'] = input("Please enter the head branch of this project (such as master/main): ")
     user_inp['version'] = input("Please enter the current version of this project: ")
-    user_inp['min_py'] = input("Please enter the minimum required Python for this project (such as 3.6): ")
+    user_inp['min_python'] = input("Please enter the minimum required Python for this project (such as 3.6): ")
     user_inp['audience'] = 'Developers'; user_inp['language'] = 'English'
 
     for k, v in user_inp.items(): f.write(f'{k} = {v}\n')
