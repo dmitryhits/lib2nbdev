@@ -322,18 +322,20 @@ def convert_lib():
 
             code = '\n'.join(split_code)
 
-        # Write to file
-        with open(file, 'w', encoding='utf8') as f: f.write(code)
-
-        # Build notebooks
-        splits = _split(code)
-        write_nb(splits, num, parent, private_list)
-
-        # Generate the `__all__` in the top of each .py
-        if '__all__' not in code:
-            c = code.split("(unless otherwise specified).")
-            code = c[0] + "(unless otherwise specified).\n" + f'\n__all__ = {export_names(code)}\n\n# Cell' + c[1]
+            # Write to file
             with open(file, 'w', encoding='utf8') as f: f.write(code)
+
+            # Build notebooks
+            splits = _split(code)
+            write_nb(splits, num, parent, private_list)
+
+            # Generate the `__all__` in the top of each .py
+            if '__all__' not in code:
+                c = code.split("(unless otherwise specified).")
+                code = c[0] + "(unless otherwise specified).\n" + f'\n__all__ = {export_names(code)}\n\n# Cell' + c[1]
+                with open(file, 'w', encoding='utf8') as f: f.write(code)
+        else:
+            print(f"{fname} was already converted.")
     print(f"{Config().lib_name} successfully converted!")
     _workflow = int(input("Would you like to setup the automated Github workflow that nbdev provides? (0/1)"))
     if _workflow:
