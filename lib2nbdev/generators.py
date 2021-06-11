@@ -12,7 +12,7 @@ def generate_settings():
     Guide the user for generating a proper `settings.ini` if one does not already exist in the directory
     """
     if Path('settings.ini').exists():
-        print("settings.ini already exists, please modify the existing version")
+        print("settings.ini already exists, going off existing version")
         return
     print("No settings.ini exists, let's make one:")
     f = open("settings.ini", 'w')
