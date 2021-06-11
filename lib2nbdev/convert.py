@@ -335,7 +335,7 @@ def convert_lib():
                 code = c[0] + "(unless otherwise specified).\n" + f'\n__all__ = {export_names(code)}\n\n# Cell' + c[1]
                 with open(file, 'w', encoding='utf8') as f: f.write(code)
         else:
-            print(f"{fname} was already converted.")
+            print(f"{file.name} was already converted.")
     print(f"{Config().lib_name} successfully converted!")
     _workflow = int(input("Would you like to setup the automated Github workflow that nbdev provides? (0/1)"))
     if _workflow:
