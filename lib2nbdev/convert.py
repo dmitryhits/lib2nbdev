@@ -15,7 +15,7 @@ from fastprogress.fastprogress import progress_bar
 from nbdev.export import nbglob, export_names, _re_class_func_def, _re_obj_def
 from nbdev.sync import _split
 
-from .generators import generate_settings, generate_ci, generate_doc_foundations
+from .generators import generate_settings, generate_ci, generate_doc_foundations, generate_setup
 
 # Cell
 def code_cell(code:str=None) -> str:
@@ -214,6 +214,10 @@ def convert_lib():
             print(f"{file.name} was already converted.")
     generate_doc_foundations()
     print(f"{Config().lib_name} successfully converted!")
+    _setup = int(input("Would you like to setup this project to be pip installable and configure a setup.py? (0/1)"))
+    if _setup:
+        generate_setup()
+        print('Project is configured for pypi, please see `setup.py` for any advanced configurations')
     _workflow = int(input("Would you like to setup the automated Github workflow that nbdev provides? (0/1)"))
     if _workflow:
         generate_actions()
