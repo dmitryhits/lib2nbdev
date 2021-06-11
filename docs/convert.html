@@ -53,7 +53,7 @@ nb_path: "00_convert.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="code_cell" class="doc_header"><code>code_cell</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L20" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>code_cell</code>(<strong><code>code</code></strong>:<code>str</code>=<em><code>None</code></em>)</p>
+<h4 id="code_cell" class="doc_header"><code>code_cell</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L21" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>code_cell</code>(<strong><code>code</code></strong>:<code>str</code>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Returns a Jupyter cell with potential <code>code</code></p>
 
@@ -92,7 +92,7 @@ nb_path: "00_convert.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="write_module_cell" class="doc_header"><code>write_module_cell</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L41" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>write_module_cell</code>()</p>
+<h4 id="write_module_cell" class="doc_header"><code>write_module_cell</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L42" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>write_module_cell</code>()</p>
 </blockquote>
 <p>Writes a template <code>Markdown</code> cell for the title and description of a notebook</p>
 
@@ -124,7 +124,7 @@ nb_path: "00_convert.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="init_nb" class="doc_header"><code>init_nb</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L55" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>init_nb</code>(<strong><code>module_name</code></strong>:<code>str</code>)</p>
+<h4 id="init_nb" class="doc_header"><code>init_nb</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L56" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>init_nb</code>(<strong><code>module_name</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Initializes a complete blank notebook based on <code>module_name</code></p>
 <p>Also writes the first #default_exp cell and checks for a nested module (moduleA.moduleB)</p>
@@ -157,7 +157,7 @@ nb_path: "00_convert.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="write_cell" class="doc_header"><code>write_cell</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L74" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>write_cell</code>(<strong><code>code</code></strong>:<code>str</code>, <strong><code>is_public</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="write_cell" class="doc_header"><code>write_cell</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L75" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>write_cell</code>(<strong><code>code</code></strong>:<code>str</code>, <strong><code>is_public</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Takes source <code>code</code>, adds an initial #export tag, and writes a Jupyter cell</p>
 
@@ -196,7 +196,7 @@ nb_path: "00_convert.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="write_nb" class="doc_header"><code>write_nb</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L84" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>write_nb</code>(<strong><code>splits</code></strong>:<code>list</code>, <strong><code>num</code></strong>:<code>int</code>, <strong><code>parent</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>private_list</code></strong>:<code>list</code>=<em><code>[]</code></em>)</p>
+<h4 id="write_nb" class="doc_header"><code>write_nb</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L85" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>write_nb</code>(<strong><code>splits</code></strong>:<code>list</code>, <strong><code>num</code></strong>:<code>int</code>, <strong><code>parent</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>private_list</code></strong>:<code>list</code>=<em><code>[]</code></em>)</p>
 </blockquote>
 <p>Writes a fully converted Jupyter Notebook based on <code>splits</code> and saves it in <code>Config</code>'s <code>nbs_path</code>.</p>
 <p>The notebook number is based on <code>num</code></p>
@@ -238,71 +238,7 @@ such as <code>moduleA.moduleB</code></p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="generate_settings" class="doc_header"><code>generate_settings</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L124" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_settings</code>()</p>
-</blockquote>
-<p>Guide the user for generating a proper <code>settings.ini</code> if one does not already exist in the directory</p>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="generate_actions" class="doc_header"><code>generate_actions</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L204" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_actions</code>()</p>
-</blockquote>
-<p>Generates a Github action for running nbdev tests</p>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="convert_lib" class="doc_header"><code>convert_lib</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L249" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert_lib</code>()</p>
+<h4 id="convert_lib" class="doc_header"><code>convert_lib</code><a href="https://github.com/Novetta/lib2nbdev/tree/main/lib2nbdev/convert.py#L125" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert_lib</code>()</p>
 </blockquote>
 <p>Converts existing library to an nbdev one by autogenerating notebooks.</p>
 <p>Optional prerequisites:</p>

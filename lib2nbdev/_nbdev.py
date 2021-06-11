@@ -7,11 +7,13 @@ index = {"code_cell": "00_convert.ipynb",
          "init_nb": "00_convert.ipynb",
          "write_cell": "00_convert.ipynb",
          "write_nb": "00_convert.ipynb",
-         "generate_settings": "00_convert.ipynb",
-         "generate_actions": "00_convert.ipynb",
-         "convert_lib": "00_convert.ipynb"}
+         "convert_lib": "00_convert.ipynb",
+         "generate_settings": "01_generators.ipynb",
+         "generate_ci": "01_generators.ipynb",
+         "generate_doc_foundations": "01_generators.ipynb"}
 
-modules = ["convert.py"]
+modules = ["convert.py",
+           "generators.py"]
 
 doc_url = "https://Novetta.github.io/lib2nbdev/"
 
