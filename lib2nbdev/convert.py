@@ -220,5 +220,5 @@ def convert_lib():
         print('Project is configured for pypi, please see `setup.py` for any advanced configurations')
     _workflow = int(input("Would you like to setup the automated Github workflow that nbdev provides? (0/1)"))
     if _workflow:
-        generate_actions()
+        generate_ci()
         print("Github actions generated! Please make sure to include .github/actions/main.yml in your next commit!")
