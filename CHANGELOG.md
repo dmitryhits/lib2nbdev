@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.0.7:
+### Bugs Squashed
+- `generate_actions` is not defined ([7](https://github.com/Novetta/lib2nbdev/issues/7))
+
 ## 0.0.6:
 
 ### New Features
