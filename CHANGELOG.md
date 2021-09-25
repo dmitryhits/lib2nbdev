@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.0.9
+
+Make lib2nbdev compatible with the latest fastcore and nbdev versions. 
+
 ## 0.0.8
 
 Pinned the `fastcore` and `nbdev` versions due to a change in how `Config` is read in. 0.0.9 will include changes for compatibility
