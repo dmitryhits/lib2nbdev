@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.0.8
+
+Pinned the `fastcore` and `nbdev` versions due to a change in how `Config` is read in. 0.0.9 will include changes for compatibility
+
 ## 0.0.7:
 ### Bugs Squashed
 - `generate_actions` is not defined ([7](https://github.com/Novetta/lib2nbdev/issues/7))
