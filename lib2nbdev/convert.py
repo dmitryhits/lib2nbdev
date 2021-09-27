@@ -82,7 +82,7 @@ def write_cell(code:str, is_public:bool=False) -> str:
     return code_cell(source)
 
 # Cell
-def write_nb(splits:list, num:int, parent:str=None, private_list:list=[]) -> str:
+def write_nb(cfg_path:str, cfg_name:str, splits:list, num:int, parent:str=None, private_list:list=[]) -> str:
     """
     Writes a fully converted Jupyter Notebook based on `splits` and saves it in `Config`'s `nbs_path`.
 
@@ -111,7 +111,7 @@ def write_nb(splits:list, num:int, parent:str=None, private_list:list=[]) -> str
         fname = f'{num}_{fname}'
 
     # Save notebook in `nbs_path`
-    with open(f'{Config().path("nbs_path")/fname}', 'w+') as source_nb:
+    with open(f'{Config(cfg_path, cfg_name).path("nbs_path")/fname}', 'w+') as source_nb:
         source_nb.write(json.dumps(nb))
 
 # Internal Cell
@@ -205,7 +205,7 @@ def convert_lib():
 
             # Build notebooks
             splits = _split(code)
-            write_nb(splits, num, parent, private_list)
+            write_nb(cfg_path, cfg_name, splits, num, parent, private_list)
 
             # Generate the `__all__` in the top of each .py
             if '__all__' not in code:
