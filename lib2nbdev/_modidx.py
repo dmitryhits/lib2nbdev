@@ -2,8 +2,8 @@
 
 d = { 'settings': { 'branch': 'main',
                 'doc_baseurl': '/lib2nbdev/',
-                'doc_host': 'https://Dmitry Hits.github.io',
-                'git_url': 'https://github.com/Dmitry Hits/lib2nbdev/tree/main/',
+                'doc_host': 'https://dmitryhits.github.io',
+                'git_url': 'https://github.com/dmitryhits/lib2nbdev/tree/main/',
                 'lib_path': 'lib2nbdev'},
   'syms': { 'lib2nbdev.convert': { 'lib2nbdev.convert._not_private': ('convert.html#_not_private', 'lib2nbdev/convert.py'),
                                    'lib2nbdev.convert._split': ('convert.html#_split', 'lib2nbdev/convert.py'),
