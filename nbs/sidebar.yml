@@ -1,0 +1,7 @@
+website:
+  sidebar:
+    contents:
+      - index.ipynb
+      - 00_convert.ipynb
+      - 01_generators.ipynb
+      - 02_tutorial.ipynb

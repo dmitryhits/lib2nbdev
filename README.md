@@ -9,7 +9,7 @@ Jupyter Notebooks. However, what if you already have an existing
 project? As it stands the only way to convert your library over is
 through manual tasks (which can take \> 30 hrs!).
 
-`lib2nbdev` is the solution!
+`lib2nbdev2` is the solution!
 
 Instead, we can perform a one-time conversion on any existing library.
 During the conversion process the library will help you generate a
@@ -29,7 +29,7 @@ and the related nbdev
 
 ## Install
 
-`pip install lib2nbdev`
+`pip install lib2nbdev2`
 
 ## How to use
 
