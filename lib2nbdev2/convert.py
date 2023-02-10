@@ -17,10 +17,10 @@ from fastprogress.fastprogress import progress_bar
 # from nbdev.export import nbglob, export_names, _re_class_func_def, _re_obj_def
 # from nbdev.sync import _split
 from nbdev.config import *
-from .generators import generate_settings, generate_ci, generate_doc_foundations, generate_setup
+from .generators import generate_ci, generate_doc_foundations, generate_setup
 from fastcore.all import *
 
-# %% ../nbs/00_convert.ipynb 5
+# %% ../nbs/00_convert.ipynb 6
 _re_class_func_def = re.compile(r"""
 # Catches any 0-indented function or class definition with its name in group 1
 ^              # Beginning of a line (since re.MULTILINE is passed)
@@ -31,7 +31,7 @@ _re_class_func_def = re.compile(r"""
 (?:\(|:)       # Non-catching group with either an opening parenthesis or a : (classes don't need ())
 """, re.MULTILINE | re.VERBOSE)
 
-# %% ../nbs/00_convert.ipynb 6
+# %% ../nbs/00_convert.ipynb 7
 _re_obj_def = re.compile(r"""
 # Catches any 0-indented object definition (bla = thing) with its name in group 1
 ^                          # Beginning of a line (since re.MULTILINE is passed)
@@ -40,7 +40,7 @@ _re_obj_def = re.compile(r"""
 (?::\s*\S.*|)=  # Non-catching group of either a colon followed by a type annotation, or nothing; followed by an =
 """, re.MULTILINE | re.VERBOSE)
 
-# %% ../nbs/00_convert.ipynb 7
+# %% ../nbs/00_convert.ipynb 8
 _re_class_func_def = re.compile(r"""
 # Catches any 0-indented function or class definition with its name in group 1
 ^              # Beginning of a line (since re.MULTILINE is passed)
@@ -51,10 +51,10 @@ _re_class_func_def = re.compile(r"""
 (?:\(|:)       # Non-catching group with either an opening parenthesis or a : (classes don't need ())
 """, re.MULTILINE | re.VERBOSE)
 
-# %% ../nbs/00_convert.ipynb 8
+# %% ../nbs/00_convert.ipynb 9
 _re_cell = re.compile(r'^# Cell|^# Internal Cell|^# Comes from\s+(\S+), cell')
 
-# %% ../nbs/00_convert.ipynb 9
+# %% ../nbs/00_convert.ipynb 10
 def _split(code):
     lines = code.split('\n')
     nbs_path = get_config().path("nbs_path").relative_to(get_config().config_file.parent)
@@ -74,7 +74,7 @@ def _split(code):
     return res
      
 
-# %% ../nbs/00_convert.ipynb 11
+# %% ../nbs/00_convert.ipynb 12
 def export_names(code, func_only=False):
     "Find the names of the objects, functions or classes defined in `code` that are exported."
     #Format monkey-patches with @patch
@@ -83,7 +83,7 @@ def export_names(code, func_only=False):
         if cls is not None: return f"def {cls}.{nm}():"
         return '\n'.join([f"def {c}.{nm}():" for c in re.split(', *', t[1:-1])])
 
-# %% ../nbs/00_convert.ipynb 12
+# %% ../nbs/00_convert.ipynb 13
 def code_cell(code:str=None) -> str:
     """
     Returns a Jupyter cell with potential `code`
@@ -104,7 +104,7 @@ def code_cell(code:str=None) -> str:
     elif code: cell["source"].append(code)
     return cell
 
-# %% ../nbs/00_convert.ipynb 13
+# %% ../nbs/00_convert.ipynb 14
 def nbglob(fname=None, recursive=None, extension='.ipynb', config_key='nbs_path') -> L:
     "Find all files in a directory matching an extension given a `config_key`."
     print('Running NBGlob')
@@ -118,7 +118,7 @@ def nbglob(fname=None, recursive=None, extension='.ipynb', config_key='nbs_path'
     fls = L(Path(fname).glob(pat)).map(Path)
     return fls.filter(lambda x: x.name[0]!='_' and '/.' not in str(x))
 
-# %% ../nbs/00_convert.ipynb 16
+# %% ../nbs/00_convert.ipynb 17
 def write_module_cell() -> str:
     """
     Writes a template `Markdown` cell for the title and description of a notebook
@@ -132,7 +132,7 @@ def write_module_cell() -> str:
     ]
     }
 
-# %% ../nbs/00_convert.ipynb 17
+# %% ../nbs/00_convert.ipynb 18
 def init_nb(module_name:str) -> str:
     """
     Initializes a complete blank notebook based on `module_name`
@@ -151,7 +151,7 @@ def init_nb(module_name:str) -> str:
            "nbformat":4,
            "nbformat_minor":4}
 
-# %% ../nbs/00_convert.ipynb 19
+# %% ../nbs/00_convert.ipynb 20
 def write_cell(code:str, is_public:bool=False) -> str:
     """
     Takes source `code`, adds an initial `#| export` or `#| exporti` tag, and writes a Jupyter cell
@@ -161,7 +161,7 @@ def write_cell(code:str, is_public:bool=False) -> str:
     source = [f"{export}"] + code.split("\n")
     return code_cell(source)
 
-# %% ../nbs/00_convert.ipynb 21
+# %% ../nbs/00_convert.ipynb 22
 def write_nb(cfg_path:str, cfg_name:str, splits:list, num:int, parent:str=None, private_list:list=[]) -> str:
     """
     Writes a fully converted Jupyter Notebook based on `splits` and saves it in `Config`'s `nbs_path`.
@@ -195,14 +195,14 @@ def write_nb(cfg_path:str, cfg_name:str, splits:list, num:int, parent:str=None, 
     with open(f'{Config(cfg_path, cfg_name).path("nbs_path")/fname}', 'w+') as source_nb:
         source_nb.write(json.dumps(nb))
 
-# %% ../nbs/00_convert.ipynb 22
+# %% ../nbs/00_convert.ipynb 23
 def _not_private(n):
     "Checks if a func is private or not, alternative to nbdev's"
     for t in n.split('.'):
         if (t.startswith('_') and not t.startswith('__')): return False
     return '\\' not in t and '^' not in t and t != 'else'
 
-# %% ../nbs/00_convert.ipynb 24
+# %% ../nbs/00_convert.ipynb 25
 @call_parse
 def convert_lib():
     """
@@ -219,13 +219,12 @@ def convert_lib():
     """
     print('Checking for a settings.ini...')
     cfg_path, cfg_name = '.', 'settings.ini'
-    generate_settings()
+    if not Path(cfg_name).exists():
+        nbdev_create_config()
+    # generate_settings()
     print('Gathering files...')
     files = nbglob(extension='.py', config_key='lib_path', recursive=True)
     print(f'Gathered files {files}')
-#     p = Path('lib_path')
-#     print(p)
-#     files = globtastic(p, file_glob='*.py')
     if len(files) == 0: 
         raise ValueError("No files were found, please ensure that `lib_path` is configured properly in `settings.ini`")
     print(f'{len(files)} modules found in the library')

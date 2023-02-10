@@ -18,7 +18,5 @@ d = { 'settings': { 'branch': 'main',
             'lib2nbdev2.generators': { 'lib2nbdev2.generators.generate_ci': ('generators.html#generate_ci', 'lib2nbdev2/generators.py'),
                                        'lib2nbdev2.generators.generate_doc_foundations': ( 'generators.html#generate_doc_foundations',
                                                                                            'lib2nbdev2/generators.py'),
-                                       'lib2nbdev2.generators.generate_settings': ( 'generators.html#generate_settings',
-                                                                                    'lib2nbdev2/generators.py'),
                                        'lib2nbdev2.generators.generate_setup': ( 'generators.html#generate_setup',
                                                                                  'lib2nbdev2/generators.py')}}}
