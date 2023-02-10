@@ -17,13 +17,16 @@ proper `settings.ini` configuration file for your project. However you
 can also generate your own `settings.ini` and put it in your project’s
 core directory, such as:
 
-- `lib2nbdev`
+- `my_project`
   - **`settings.ini`**
-  - `lib2nbdev`
+  - `my_project`
     - `convert.py`
 
-For generating a valid `settings.ini`, see an example
-[here](https://github.com/fastai/nbdev_template/blob/master/settings.ini)
+Caveat: the program looks for`*.py` files in the subdirectory of your
+project whose name is taken from `lib_name` in the `settings.ini` of
+your project. You wou For generating a valid `settings.ini`, see an
+example at
+[nbdev_template](https://github.com/fastai/nbdev_template/blob/master/settings.ini)
 and the related nbdev
 [documentation](https://nbdev.fast.ai/tutorial.html#Edit-settings.ini)
 
