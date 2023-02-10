@@ -1,9 +1,0 @@
-project:
-  output-dir: docs
-
-website:
-  title: "lib2nbdev"
-  site-url: "https://Dmitry Hits.github.io/lib2nbdev/"
-  description: "A small library for converting existing libraries and projects to nbdev"
-  repo-branch: main
-  repo-url: "https://github.com/Dmitry Hits/lib2nbdev/tree/main/"
