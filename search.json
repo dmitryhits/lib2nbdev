@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "convert.html#foundational-helper-functions",
+    "href": "convert.html#foundational-helper-functions",
+    "title": "The Converter",
+    "section": "Foundational Helper Functions",
+    "text": "Foundational Helper Functions\n\nsource\n\nexport_names\n\n export_names (code, func_only=False)\n\nFind the names of the objects, functions or classes defined in code that are exported.\n\nsource\n\n\ncode_cell\n\n code_cell (code:str=None)\n\nReturns a Jupyter cell with potential code\n\nsource\n\n\nnbglob\n\n nbglob (fname=None, recursive=None, extension='.ipynb',\n         config_key='nbs_path')\n\nFind all files in a directory matching an extension given a config_key.\nA very simplistic and foundational function, it simply returns a string representation of a Jupyter cell without any metadata and potentially some code.\n\nsource\n\n\nwrite_module_cell\n\n write_module_cell ()\n\nWrites a template Markdown cell for the title and description of a notebook\n\nsource\n\n\ninit_nb\n\n init_nb (module_name:str)\n\nInitializes a complete blank notebook based on module_name\nAlso writes the first #| default_exp cell and checks for a nested module (moduleA.moduleB)\n\nsource\n\n\nwrite_cell\n\n write_cell (code:str, is_public:bool=False)\n\nTakes source code, adds an initial #| export or #| exporti tag, and writes a Jupyter cell\nThis function will write a cell given some code (which is a str). is_public is there to determine if #export or #exporti should be used (a public or private function, class, or object).\n\nsource\n\n\nwrite_nb\n\n write_nb (cfg_path:str, cfg_name:str, splits:list, num:int,\n           parent:str=None, private_list:list=[])\n\nWrites a fully converted Jupyter Notebook based on splits and saves it in Config’s nbs_path.\nThe notebook number is based on num\nparent denotes if the current notebook module is based on a parent module such as moduleA.moduleB\nprivate_list is a by-cell list of True/False for each block of code of whether it is private or public"
+  },
+  {
+    "objectID": "convert.html#converting-libraries",
+    "href": "convert.html#converting-libraries",
+    "title": "The Converter",
+    "section": "Converting Libraries",
+    "text": "Converting Libraries\n\nsource\n\nconvert_lib\n\n convert_lib ()\n\nConverts existing library to an nbdev one by autogenerating notebooks.\nOptional prerequisites: - Make a nbdev settings.ini file beforehand - Optionally you can add # Cell and # Internal Cell tags in the source files where you would like specific cells to be\nRun this command in the base of your repo\nCan only be run once\nAn example of adding in # Cell or # Internal Cell to the source code can be seen below:\n# Filename is noop.py\n\n# Internal Cell\ndef _myPrivateFunc(o): return o\n\n# Cell\ndef myPublicFunc(o): return o"
+  },
+  {
+    "objectID": "convert.html#test",
+    "href": "convert.html#test",
+    "title": "The Converter",
+    "section": "Test",
+    "text": "Test"
+  },
+  {
+    "objectID": "generators.html",
+    "href": "generators.html",
+    "title": "Generators",
+    "section": "",
+    "text": "source\n\ngenerate_ci\n\n generate_ci ()\n\nGenerates a Github action for running nbdev tests\n\nsource\n\n\ngenerate_doc_foundations\n\n generate_doc_foundations ()\n\nGrabs the needed files for documentation from nbdev_template\nThis function goes and grabs the latest updated version of Gemfile, Gemfile.lock, feed.xml, and sitemap.xml. These are all needed to initially build the documentation\n\nsource\n\n\ngenerate_setup\n\n generate_setup ()\n\nGrabs the original setup.py file from nbdev_template"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "lib2nbdev2",
+    "section": "",
+    "text": "nbdev is a fantastic workflow aimed at centralizing documentation, testing, and source code generation all out of one place: Jupyter Notebooks. However, what if you already have an existing project? As it stands the only way to convert your library over is through manual tasks (which can take > 30 hrs!).\nlib2nbdev2 is the solution!\nInstead, we can perform a one-time conversion on any existing library. During the conversion process the library will help you generate a proper settings.ini configuration file for your project. However you can also generate your own settings.ini and put it in your project’s core directory, such as:\nCaveat: the program looks for*.py files in the subdirectory of your project whose name is taken from lib_name in the settings.ini of your project. You wou For generating a valid settings.ini, see an example at nbdev_template and the related nbdev documentation"
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "lib2nbdev2",
+    "section": "Install",
+    "text": "Install\npip install lib2nbdev2"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "lib2nbdev2",
+    "section": "How to use",
+    "text": "How to use\nFrom your project directory (in bash), simply run:\nconvert_lib\nAnd it will automatically generate the notebooks needed, as well as privatizing any functions that may need it (anything preceding with a _ in the name) where they shouldn’t show in the generated documentation.\nAfterwards you have a fully-functional nbdev library, and can make use of all its goodies!\n\nNote for Windows Users:\nNot tested on windows"
+  },
+  {
+    "objectID": "index.html#important-notice",
+    "href": "index.html#important-notice",
+    "title": "lib2nbdev2",
+    "section": "Important Notice:",
+    "text": "Important Notice:\nThis is a one-time conversion, this does not allow for repeated python -> notebook conversions."
+  },
+  {
+    "objectID": "tutorial.html",
+    "href": "tutorial.html",
+    "title": "Converting A Library (Tutorial)",
+    "section": "",
+    "text": "Before utilizing lib2nbdev2, you should install it on your system. Currently there only pip releases available.\nThe library also requires at least python 3.7\n\n\nTo install with pip, run:\npip install lib2nbdev2\n(or pip3 depending on your setup)"
+  },
+  {
+    "objectID": "tutorial.html#setting-up-your-repository-things-you-should-be-thinking-about",
+    "href": "tutorial.html#setting-up-your-repository-things-you-should-be-thinking-about",
+    "title": "Converting A Library (Tutorial)",
+    "section": "Setting Up Your Repository, Things You Should Be Thinking About",
+    "text": "Setting Up Your Repository, Things You Should Be Thinking About\nWhen converting your library, the end result will look very similar to other nbdev-created libraries, such as this one or the fastai library. This being your repository will have a place for your notebooks, a settings.ini file, and potential Github actions.\nBefore converting your library, you should consider:\n\nWhere do I want my notebooks to be stored? > lib2nbdev2 will ask where you want your notebooks to be located. Generally we recommend answering with nbs, so they all get placed in a nbs folder"
+  },
+  {
+    "objectID": "tutorial.html#the-conversion-process",
+    "href": "tutorial.html#the-conversion-process",
+    "title": "Converting A Library (Tutorial)",
+    "section": "The Conversion Process",
+    "text": "The Conversion Process\nConverting any library to the nbdev format is extremely simple. From your linux CLI, go to the home directory of your existing repository or library, and run:\nconvert_lib\nIn your terminal.\nYou will then see a series of questions pop up, similar to below. Answer them, as they will guide you through setting up your settings.ini:\n\nNote: The name of your library should point to the source folder of your project.\nAfterwards lib2nbdev2 will convert your .py files into notebooks and store them away in wherever you specified:\n\nFinally you will be prompted as to whether you want to use the nbdev Github workflow template. > Notice: If you choose yes (1), you should make sure to explicitly add the workflow located in .github/workflows/main.yml to git on your next commit\n\nAnd you are done! Your entire library has been converted into Jupyter Notebooks, and you are now setup to work with the nbdev workflow. When modifying the library you should be working directly out of those Jupyter Notebooks, and be making new ones as you progress."
+  },
+  {
+    "objectID": "tutorial.html#closing-remarks",
+    "href": "tutorial.html#closing-remarks",
+    "title": "Converting A Library (Tutorial)",
+    "section": "Closing Remarks",
+    "text": "Closing Remarks\nIt should be noted that these are blank notebook templates, so you should modify the opening headers and descriptions that are autogenerated in each notebook with a relevant title.\nAlso, if you want to use nbdev generated documentation, you should think about how to bring in your existing documentation and tutorials into these notebooks. You can also just link directly to your existing Markdown files by adjusting the sidebar.json located in the _docs folder. (You need to run nbdev_build_docs at least once for this to show up)."
+  }
+]
